@@ -1,8 +1,14 @@
 <template>
 	<v-app>
-		<v-main>
-			<slot />
+		<AppNavbar />
+
+		<v-main min-height="100%">
+			<v-container min-height="100%">
+				<slot />
+			</v-container>
 		</v-main>
+
+		<AppFooter />
 	</v-app>
 </template>
 <script>
