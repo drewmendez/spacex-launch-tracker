@@ -27,7 +27,7 @@ export type Launch = {
 }
 
 const query = gql`
-	query getLaunches {
+	query Launches {
 		launches {
 			id
 			mission_name
@@ -52,25 +52,22 @@ const query = gql`
 	}
 `
 
-export const useLaunches = () => {
+export const useLaunches = (filter: Ref<string | null, string | null>) => {
 	const { data } = useAsyncQuery<{ launches: Launch[] }>(query)
 
+	const launches = computed(() => {
+		if (!filter.value) {
+			return transformData(data.value?.launches)
+		} else {
+			return transformData(data.value?.launches.filter((launch) => launch.launch_year === filter.value))
+		}
+	})
+
 	return {
-		launches: computed(() =>
-			data.value?.launches.map((launch) => ({
-				id: launch.id,
-				missionName: launch.mission_name,
-				launchDate: formatDate(launch.launch_date_utc),
-				launchSite: launch.launch_site ? launch.launch_site.site_name : 'No data',
-				rocketName: launch.rocket.rocket_name,
-				details: launch.details || 'No data',
-				launchYear: launch.launch_year,
-				image: launch.links.flickr_images.length
-					? launch.links.flickr_images[0]!
-					: launch.links.video_link
-						? getThumbnail(launch.links.video_link)
-						: '',
-			})),
-		),
+		launches: launches,
+		launchYears: computed(() => {
+			const years = data.value?.launches.map((launch) => launch.launch_year)
+			return Array.from(new Set(years)).sort((a: any, b: any) => parseInt(b) - parseInt(a))
+		}),
 	}
 }
