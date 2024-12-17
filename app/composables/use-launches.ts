@@ -52,14 +52,19 @@ const query = gql`
 	}
 `
 
-export const useLaunches = (filter: Ref<string | null, string | null>) => {
+export const useLaunches = (filter: Ref<string | null, string | null>, sortOrder: Ref<string, string>) => {
 	const { data } = useAsyncQuery<{ launches: Launch[] }>(query)
 
 	const launches = computed(() => {
 		if (!filter.value) {
-			return transformData(data.value?.launches)
+			return transformData(sortByDate(data.value?.launches, sortOrder.value))
 		} else {
-			return transformData(data.value?.launches.filter((launch) => launch.launch_year === filter.value))
+			return transformData(
+				sortByDate(
+					data.value?.launches.filter((launch) => launch.launch_year === filter.value),
+					sortOrder.value,
+				),
+			)
 		}
 	})
 
