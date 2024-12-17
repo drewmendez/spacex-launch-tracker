@@ -3,9 +3,7 @@
 		<AppNavbar />
 
 		<v-main min-height="100%">
-			<v-container min-height="100%">
-				<slot />
-			</v-container>
+			<slot />
 		</v-main>
 
 		<AppFooter />
