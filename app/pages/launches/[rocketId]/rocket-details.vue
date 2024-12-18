@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 const rocket = useRocket()
+
+const store = useFavoriteRocketsStore()
 </script>
 
 <template>
@@ -47,8 +49,18 @@ const rocket = useRocket()
 				</v-card-text>
 			</v-card>
 
-			<v-btn color="primary" variant="flat" append-icon="mdi-heart-outline" size="large">
-				ADD TO FAVORITES
+			<v-btn
+				color="primary"
+				size="large"
+				:variant="store.isAlreadyInFavorites(rocket?.id!) ? 'tonal' : 'flat'"
+				:append-icon="store.isAlreadyInFavorites(rocket?.id!) ? 'mdi-heart' : 'mdi-heart-outline'"
+				@click="
+					store.isAlreadyInFavorites(rocket?.id!)
+						? store.removeToFavorites(rocket?.id!)
+						: store.addToFavorites(rocket!)
+				"
+			>
+				{{ store.isAlreadyInFavorites(rocket?.id!) ? 'REMOVE TO FAVORITES' : 'ADD TO FAVORITES' }}
 			</v-btn>
 		</v-responsive>
 	</v-container>
