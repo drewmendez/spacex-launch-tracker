@@ -29,7 +29,7 @@ const { launches, launchYears } = useLaunches(year, sortOrder)
 			</div>
 
 			<v-row align="stretch">
-				<v-col v-for="launch in launches" :key="launch.id" sm="6" md="4" lg="3">
+				<v-col v-for="launch in launches" :key="launch.id" cols="12" sm="6" md="4" lg="3">
 					<LaunchCard v-bind="launch" />
 				</v-col>
 			</v-row>

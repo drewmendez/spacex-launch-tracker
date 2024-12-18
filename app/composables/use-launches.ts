@@ -72,7 +72,7 @@ export const useLaunches = (filter: Ref<string | null, string | null>, sortOrder
 		launches: launches,
 		launchYears: computed(() => {
 			const years = data.value?.launches.map((launch) => launch.launch_year)
-			return Array.from(new Set(years)).sort((a: any, b: any) => parseInt(b) - parseInt(a))
+			return Array.from(new Set(years)).sort((a, b) => parseInt(b) - parseInt(a))
 		}),
 	}
 }

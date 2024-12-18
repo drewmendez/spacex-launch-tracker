@@ -5,6 +5,7 @@ defineProps<{
 	launchDate: string
 	launchSite: string
 	rocketName: string
+	rocketId: string
 	details: string
 	launchYear: string
 	image: string
@@ -12,29 +13,35 @@ defineProps<{
 </script>
 
 <template>
-	<v-card hover height="100%">
-		<v-img
-			class="align-end text-white"
-			gradient="to bottom, rgba(0,0,0,.4), rgba(0,0,0,0.9)"
-			height="200"
-			:src="image"
-			cover
-		>
-			<v-card-title class="text-h5 font-weight-bold">{{ missionName }}</v-card-title>
-		</v-img>
+	<NuxtLink :to="`/launches/${rocketId}/rocket-details`" class="text-decoration-none">
+		<v-card hover height="100%">
+			<v-img
+				class="align-end text-white"
+				gradient="to bottom, rgba(0,0,0,.4), rgba(0,0,0,0.9)"
+				height="200"
+				:src="image"
+				cover
+			>
+				<v-card-title class="text-h5 font-weight-bold">
+					{{ missionName }}
+				</v-card-title>
+				<v-card-text class="font-weight-bold">{{ launchDate }}</v-card-text>
+			</v-img>
 
-		<v-card-text>
-			<p>{{ launchDate }}</p>
-			<p>Site name: {{ launchSite }}</p>
-			<p class="font-weight-bold text-h6">{{ rocketName }}</p>
-		</v-card-text>
-		<v-divider class="mx-4 mb-1"></v-divider>
-		<v-card-text>
-			<p class="truncate">
-				{{ details }}
-			</p>
-		</v-card-text>
-	</v-card>
+			<v-card-text>
+				<p class="font-weight-bold text-h5 text-uppercase">
+					{{ rocketName }}
+				</p>
+				<p class="text-uppercase">Site name: {{ launchSite }}</p>
+			</v-card-text>
+			<v-divider class="mx-4"></v-divider>
+			<v-card-text>
+				<p class="truncate text-subtitle-2">
+					{{ details }}
+				</p>
+			</v-card-text>
+		</v-card>
+	</NuxtLink>
 </template>
 
 <style scoped>
