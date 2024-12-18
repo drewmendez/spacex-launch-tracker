@@ -1,9 +1,9 @@
-type Distance = {
+export type Distance = {
 	feet: number
 	meters: number
 }
 
-type Mass = {
+export type Mass = {
 	kg: number
 	lb: number
 }
