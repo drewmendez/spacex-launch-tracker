@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import Empty from '~/assets/empty.png'
+
 const store = useFavoriteRocketsStore()
 </script>
 
@@ -24,7 +26,14 @@ const store = useFavoriteRocketsStore()
 				REMOVE ALL FAVORITES
 			</v-btn>
 		</v-row>
-		<v-row v-if="store.getFavorites.length">
+		<template v-if="!store.getFavorites.length">
+			<v-empty-state
+				headline="Empty"
+				title="Looks like nothing's in here"
+				:image="Empty"
+			></v-empty-state>
+		</template>
+		<v-row>
 			<v-col v-for="rocket in store.getFavorites" :key="rocket.id" cols="3">
 				<RocketCard v-bind="rocket" />
 			</v-col>
