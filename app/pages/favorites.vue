@@ -3,6 +3,14 @@ const store = useFavoriteRocketsStore()
 </script>
 
 <template>
+	<Head>
+		<Title>SpaceX | Favorites</Title>
+		<Meta
+			name="description"
+			content="Explore the latest and past SpaceX launches with detailed mission timelines, payload information, and live updates. Your gateway to tracking SpaceX's journey to the stars!"
+		/>
+	</Head>
+
 	<v-container class="mx-auto">
 		<p class="text-button text-center">FAVORITE ROCKETS</p>
 		<v-row>

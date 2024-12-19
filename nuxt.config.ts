@@ -21,6 +21,12 @@ export default defineNuxtConfig({
 		plugins: [vuetify()],
 	},
 
+	app: {
+		head: {
+			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+		},
+	},
+
 	modules: ['@nuxtjs/apollo', ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }]],
 	compatibilityDate: '2024-11-11',
 })

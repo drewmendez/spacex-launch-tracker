@@ -6,6 +6,14 @@ const { launches } = useLaunches(selectedYear, sortOrder)
 </script>
 
 <template>
+	<Head>
+		<Title>SpaceX | Launches</Title>
+		<Meta
+			name="description"
+			content="Explore the latest and past SpaceX launches with detailed mission timelines, payload information, and live updates. Your gateway to tracking SpaceX's journey to the stars!"
+		/>
+	</Head>
+
 	<section>
 		<v-container class="">
 			<div class="d-flex ga-7">

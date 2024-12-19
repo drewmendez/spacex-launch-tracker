@@ -5,6 +5,14 @@ const store = useFavoriteRocketsStore()
 </script>
 
 <template>
+	<Head>
+		<Title>SpaceX | Rocket Details</Title>
+		<Meta
+			name="description"
+			content="Explore the latest and past SpaceX launches with detailed mission timelines, payload information, and live updates. Your gateway to tracking SpaceX's journey to the stars!"
+		/>
+	</Head>
+
 	<v-container>
 		<template v-if="!rocket">
 			<v-skeleton-loader

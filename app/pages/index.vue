@@ -1,4 +1,12 @@
 <template>
+	<Head>
+		<Title>SpaceX</Title>
+		<Meta
+			name="description"
+			content="Explore the latest and past SpaceX launches with detailed mission timelines, payload information, and live updates. Your gateway to tracking SpaceX's journey to the stars!"
+		/>
+	</Head>
+
 	<section class="hero h-100">
 		<v-container class="d-flex align-center justify-center h-100">
 			<div class="w-66 text-center text-white d-flex flex-column align-center ga-7">
