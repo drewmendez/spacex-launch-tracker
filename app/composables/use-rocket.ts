@@ -50,5 +50,5 @@ export const useRocket = () => {
 
 	const rocket = computed(() => data.value?.rocket)
 
-	return rocket
+	return { rocket }
 }

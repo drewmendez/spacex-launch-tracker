@@ -34,9 +34,11 @@ const { launches } = useLaunches(selectedYear, sortOrder)
 					</v-col>
 				</template>
 
-				<v-col v-for="launch in launches" :key="launch.id" cols="12" sm="6" md="4" lg="3">
-					<LaunchCard v-bind="launch" />
-				</v-col>
+				<template v-else>
+					<v-col v-for="launch in launches" :key="launch.id" cols="12" sm="6" md="4" lg="3">
+						<LaunchCard v-bind="launch" />
+					</v-col>
+				</template>
 			</v-row>
 		</v-container>
 	</section>
