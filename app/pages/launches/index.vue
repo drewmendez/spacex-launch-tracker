@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-// const year = ref(null)
 const { selectedYear, uniqueYears } = useFilterYear()
-const sortOrder = ref('Ascending')
-const sorts = ['Ascending', 'Descending']
+const { sortOrder, sorts } = useSortByYear()
 
-const { launches, launchYears } = useLaunches(selectedYear, sortOrder)
+const { launches } = useLaunches(selectedYear, sortOrder)
 </script>
 
 <template>
