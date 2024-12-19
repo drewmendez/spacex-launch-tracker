@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import LazyImg from '~/assets/bg-image.webp'
+
 defineProps<{
 	id: string
 	missionName: string
@@ -20,6 +22,7 @@ defineProps<{
 				gradient="to bottom, rgba(0,0,0,.4), rgba(0,0,0,0.9)"
 				height="180"
 				:src="image"
+				:lazy-src="LazyImg"
 				cover
 			>
 				<v-card-title class="text-h5 font-weight-bold">
