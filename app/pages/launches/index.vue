@@ -15,7 +15,7 @@ const { launches } = useLaunches(selectedYear, sortOrder)
 	</Head>
 
 	<section>
-		<v-container class="">
+		<v-container>
 			<div class="d-flex ga-7">
 				<v-select
 					class="ml-auto"
@@ -49,5 +49,6 @@ const { launches } = useLaunches(selectedYear, sortOrder)
 				</template>
 			</v-row>
 		</v-container>
+		<ScrollToTopBtn />
 	</section>
 </template>
