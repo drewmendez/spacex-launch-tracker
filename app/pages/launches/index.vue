@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-const year = ref(null)
+// const year = ref(null)
+const { selectedYear, uniqueYears } = useFilterYear()
 const sortOrder = ref('Ascending')
 const sorts = ['Ascending', 'Descending']
 
-const { launches, launchYears } = useLaunches(year, sortOrder)
+const { launches, launchYears } = useLaunches(selectedYear, sortOrder)
 </script>
 
 <template>
@@ -22,9 +23,9 @@ const { launches, launchYears } = useLaunches(year, sortOrder)
 					max-width="300px"
 					variant="outlined"
 					label="Filter by year"
-					v-model="year"
+					v-model="selectedYear"
 					clearable
-					:items="launchYears"
+					:items="uniqueYears"
 				/>
 			</div>
 
