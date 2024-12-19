@@ -18,7 +18,7 @@ defineProps<{
 			<v-img
 				class="align-end text-white"
 				gradient="to bottom, rgba(0,0,0,.4), rgba(0,0,0,0.9)"
-				height="200"
+				height="180"
 				:src="image"
 				cover
 			>
@@ -49,7 +49,7 @@ defineProps<{
 	overflow: hidden;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	line-clamp: 2;
-	-webkit-line-clamp: 2;
+	line-clamp: 3;
+	-webkit-line-clamp: 3;
 }
 </style>

@@ -7,7 +7,7 @@ const { launches } = useLaunches(selectedYear, sortOrder)
 
 <template>
 	<section>
-		<v-container>
+		<v-container class="">
 			<div class="d-flex ga-7">
 				<v-select
 					class="ml-auto"
@@ -28,6 +28,12 @@ const { launches } = useLaunches(selectedYear, sortOrder)
 			</div>
 
 			<v-row align="stretch">
+				<template v-if="!launches.length">
+					<v-col v-for="n in 12" :key="n" cols="12" sm="6" md="4" lg="3">
+						<v-skeleton-loader type="card, text, paragraph" elevation="1" />
+					</v-col>
+				</template>
+
 				<v-col v-for="launch in launches" :key="launch.id" cols="12" sm="6" md="4" lg="3">
 					<LaunchCard v-bind="launch" />
 				</v-col>
