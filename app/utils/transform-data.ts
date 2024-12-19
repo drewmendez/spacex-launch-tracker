@@ -1,5 +1,5 @@
-export const transformData = (launches: Launch[] | undefined) => {
-	return launches?.map((launch) => ({
+export const transformData = (launches: Launch[]) => {
+	return launches.map((launch) => ({
 		id: launch.id,
 		missionName: launch.mission_name,
 		launchDate: formatDate(launch.launch_date_utc),
